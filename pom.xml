@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+            http://maven.apache.org/POM/4.0.0
+            https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.nttdata</groupId>
+    <artifactId>appium-android-java-minimo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Appium Android Java - Proyecto Minimo</name>
+
+    <properties>
+
+        <!-- Java -->
+        <java.version>21</java.version>
+
+        <!-- Appium -->
+        <appium.version>10.1.1</appium.version>
+
+        <!--
+            Appium Java Client 10.1.1 es compatible
+            oficialmente con Selenium 4.42 / 4.43.
+        -->
+        <selenium.version>4.43.0</selenium.version>
+
+        <!-- Cucumber -->
+        <cucumber.version>7.34.4</cucumber.version>
+
+        <!-- JUnit -->
+        <junit.version>4.13.2</junit.version>
+
+        <!-- Maven plugins -->
+        <maven.compiler.version>3.14.1</maven.compiler.version>
+        <maven.surefire.version>3.5.5</maven.surefire.version>
+
+        <!-- Encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    </properties>
+
+
+    <dependencies>
+
+        <!-- ================================================= -->
+        <!-- APPIUM                                           -->
+        <!-- ================================================= -->
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium.version}</version>
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- SELENIUM                                         -->
+        <!-- ================================================= -->
+
+        <!--
+            Se fija explícitamente para evitar que Maven
+            seleccione una versión Selenium incompatible
+            con Appium Java Client.
+        -->
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- CUCUMBER                                         -->
+        <!-- ================================================= -->
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- JUNIT 4                                          -->
+        <!-- ================================================= -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+
+        <plugins>
+
+            <!-- ============================================= -->
+            <!-- JAVA 21                                      -->
+            <!-- ============================================= -->
+
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+
+                <configuration>
+
+                    <release>${java.version}</release>
+
+                    <encoding>UTF-8</encoding>
+
+                    <parameters>true</parameters>
+
+                </configuration>
+
+            </plugin>
+
+
+            <!-- ============================================= -->
+            <!-- TEST EXECUTION                               -->
+            <!-- ============================================= -->
+
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+
+                <configuration>
+
+                    <useModulePath>false</useModulePath>
+
+                    <includes>
+
+                        <include>**/*Test.java</include>
+
+                        <include>**/*TestSuite.java</include>
+
+                    </includes>
+
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
