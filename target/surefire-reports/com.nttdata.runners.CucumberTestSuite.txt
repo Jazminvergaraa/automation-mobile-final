@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: com.nttdata.runners.CucumberTestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 66.53 s <<< FAILURE! -- in com.nttdata.runners.CucumberTestSuite
+Validar funcionalidad del carrito de compras.Agregar productos al carrito y validar su actualización #2 -- Time elapsed: 14.76 s <<< FAILURE!
+java.lang.AssertionError: El producto 'Sauce Labs Bolt T-Shirt' no aparece en el carrito con la cantidad esperada (1).
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.nttdata.stepsdefinitions.CarritoStepsDefs.valido_el_carrito_de_compra_actualice_correctamente(CarritoStepsDefs.java:62)
+	at ✽.valido el carrito de compra actualice correctamente(file:///C:/Users/SOPORTE/OneDrive%20-%20CIBERTEC/Documentos/QAInnovationLab/src/test/resources/features/Carrito.feature:13)
+
+Validar funcionalidad del carrito de compras.Agregar productos al carrito y validar su actualización #3 -- Time elapsed: 30.92 s <<< FAILURE!
+java.lang.AssertionError: [ProductDetailScreen] La app no navego a la pantalla de detalle del producto (el titulo se quedo en 'Products' tras 20s). Posible crash o falla de navegacion del APK al abrir el detalle. Package activo en ese momento: com.google.android.apps.nexuslauncher
+	at com.nttdata.screens.ProductDetailScreen.obtenerNombreProducto(ProductDetailScreen.java:83)
+	at com.nttdata.steps.CarritoSteps.agregarProductoAlCarrito(CarritoSteps.java:39)
+	at com.nttdata.stepsdefinitions.CarritoStepsDefs.agrego_del_siguiente_producto(CarritoStepsDefs.java:52)
+	at ✽.agrego 2 del siguiente producto "Sauce Labs Bike Light"(file:///C:/Users/SOPORTE/OneDrive%20-%20CIBERTEC/Documentos/QAInnovationLab/src/test/resources/features/Carrito.feature:12)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.nttdata.screens.ProductDetailScreen$$Lambda/0x000002e13a2ddfa8@75fc1992
+(tried for 20 seconds with 500 milliseconds interval)
+Build info: version: '4.47.0', revision: '9175ed9 9175ed94d83e87cc3abeb7c9fd91367d17849d35'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Users/SOPORTE/Downloads/..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Users/SOPORTE/Downloads/..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Pixel_4_API_30, disableWindowAnimation: true, forceAppLaunch: true, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 11, skipLogcatCapture: true, udid: emulator-5554}, appium:deviceApiLevel: 30, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone_x86, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 440, appium:deviceScreenSize: 1080x2280, appium:deviceUDID: emulator-5554, appium:disableWindowAnimation: true, appium:forceAppLaunch: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.75, appium:platformVersion: 11, appium:skipLogcatCapture: true, appium:statBarHeight: 83, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2197, left: 0, top: 83, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 1d66ea22-d9b8-495d-891a-73b049517f99
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
+	at com.nttdata.screens.ProductDetailScreen.obtenerNombreProducto(ProductDetailScreen.java:66)
+	... 3 more
+
+Inicio de sesion en Sauce Labs Sample App.Login exitoso con credenciales validas -- Time elapsed: 4.157 s <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not start a new session. Response code 500. Message: Cannot start the 'com.saucelabs.mydemoapp.android' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command ''C:\Users\SOPORTE\AppData\Local\Android\Sdk\platform-tools\adb.exe' -P 5037 -s emulator-5554 shell am start-activity -W -n com.saucelabs.mydemoapp.android/com.saucelabs.mydemoapp.android.view.activities.MainActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 255'; Command output: 
+Exception occurred while executing 'start-activity':
+java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.saucelabs.mydemoapp.android/.view.activities.MainActivity } from null (pid=17154, uid=2000) not exported from uid 10167
+	at com.android.server.wm.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1032)
+	at com.android.server.wm.ActivityStarter.executeRequest(ActivityStarter.java:999)
+	at com.android.server.wm.ActivityStarter.execute(ActivityStarter.java:669)
+	at com.android.server.wm.ActivityTaskManagerService.startActivityAndWait(ActivityTaskManagerService.java:1338)
+	at com.android.server.am.ActivityManagerService.startActivityAndWait(ActivityManagerService.java:3687)
+	at com.android.server.am.ActivityManagerShellCommand.runStartActivity(ActivityManagerShellCommand.java:539)
+	at com.android.server.am.ActivityManagerShellCommand.onCommand(ActivityManagerShellCommand.java:186)
+	at android.os.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:98)
+	at android.os.ShellCommand.exec(ShellCommand.java:44)
+	at com.android.server.am.ActivityManagerService.onShellCommand(ActivityManagerService.java:10521)
+	at android.os.Binder.shellCommand(Binder.java:929)
+	at android.os.Binder.onTransact(Binder.java:813)
+	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:5027)
+	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2883)
+	at android.os.Binder.execTransactInternal(Binder.java:1159)
+	at android.os.Binder.execTransact(Binder.java:1123)
+ 
+Host info: host: 'LAPTOP-J8B97QQ8', ip: '172.20.10.4'
+Build info: version: '4.47.0', revision: '9175ed9 9175ed94d83e87cc3abeb7c9fd91367d17849d35'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[Capabilities {appium:app: C:/Users/SOPORTE/Downloads/..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:deviceName: PruebaMobile, appium:disableWindowAnimation: true, appium:forceAppLaunch: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 10, appium:settings[waitForIdleTimeout]: 1000, appium:skipLogcatCapture: true, appium:udid: emulator-5554, platformName: ANDROID}]}]
+Capabilities {appium:app: C:/Users/SOPORTE/Downloads/..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:deviceName: PruebaMobile, appium:disableWindowAnimation: true, appium:forceAppLaunch: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 10, appium:settings[waitForIdleTimeout]: 1000, appium:skipLogcatCapture: true, appium:udid: emulator-5554, platformName: ANDROID}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:115)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:76)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:62)
+	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:178)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:243)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:653)
+	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:308)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:203)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:98)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:109)
+	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:108)
+	at com.nttdata.screens.AppConfigScreen.iniciarAplicacion(AppConfigScreen.java:62)
+	at com.nttdata.steps.AppConfigSteps.iniciarAplicacion(AppConfigSteps.java:19)
+	at com.nttdata.stepsdefinitions.AppConfigStepsDefs.ingreso_al_aplicativo(AppConfigStepsDefs.java:38)
+	at ✽.ingreso al aplicativo "saucelabs"(file:///C:/Users/SOPORTE/OneDrive%20-%20CIBERTEC/Documentos/QAInnovationLab/src/test/resources/features/SauceLabs.feature:10)
+

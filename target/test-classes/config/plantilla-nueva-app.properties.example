@@ -1,0 +1,27 @@
+# =========================================================
+# PLANTILLA - Configuracion de capabilities para una app nueva
+# =========================================================
+# 1. Copia este archivo dentro de la misma carpeta (config/)
+# 2. Renombralo, ej: miApp.properties
+# 3. Quita la extension .example
+# 4. Completa los valores segun tu APK
+# 5. Usa el nombre del archivo en el step:
+#      Given ingreso al aplicativo "miApp"
+# =========================================================
+
+appium.url=http://127.0.0.1:4723/
+
+platformName=Android
+automationName=UiAutomator2
+
+udid=
+deviceName=
+platformVersion=
+
+app=
+appPackage=
+appActivity=
+
+noReset=true
+autoGrantPermissions=true
+newCommandTimeoutSeconds=300
